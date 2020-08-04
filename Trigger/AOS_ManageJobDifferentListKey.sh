@@ -20,14 +20,15 @@ ADSTYLE_LIST_2="IconView_Image_600x314-540x540"
 
 #Clean file
 echo "" > log_AOS_ManageJobDifferentListKey.txt
+name_of_report=`date +"%Y-%m-%d-%H:%M"`
 
 for style in $ADSTYLE_LIST_1;do
   echo "Trigger Ad style: $style for all keys" >> log_AOS_ManageJobDifferentListKey.txt
-  echo "TestPlanID: $PlanID_VALUE" >> dataReport.txt
-  echo "AD_STYLE: $style" >> dataReport.txt
+  echo "TestPlanID: $PlanID_VALUE" >> dataReport_$name_of_report.txt
+  echo "AD_STYLE: $style" >> dataReport_$name_of_report.txt
   for key in $InventoryKey_list_1;do
     echo "Trigger for key: $key" >> log_AOS_ManageJobDifferentListKey.txt
-    echo "InventoryKey: $key" >> dataReport.txt
+    echo "InventoryKey: $key" >> dataReport_$name_of_report.txt
 #    PlanID_VALUE=$1
 #    STYLE_VALUE=$2
 #    InventoryKey=$3
@@ -57,11 +58,11 @@ sleep 60
 for style in $ADSTYLE_LIST_2;do
   echo "Trigger Ad style: $style for all keys" >> log_AOS_ManageJobDifferentListKey.txt
    echo "==== REPORT ===="
-  echo "TestPlanID: $PlanID_VALUE" >> dataReport.txt
-  echo "AD_STYLE: $style" >> dataReport.txt
+  echo "TestPlanID: $PlanID_VALUE" >> dataReport_$name_of_report.txt
+  echo "AD_STYLE: $style" >> dataReport_$name_of_report.txt
   for key in $InventoryKey_list_2;do
     echo "Trigger for key: $key" >> log_AOS_ManageJobDifferentListKey.txt
-    echo "InventoryKey: $key" >> dataReport.txt
+    echo "InventoryKey: $key" >> dataReport_$name_of_report.txt
 #    PlanID_VALUE=$1
 #    STYLE_VALUE=$2
 #    InventoryKey=$3

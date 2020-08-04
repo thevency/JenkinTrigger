@@ -11,16 +11,16 @@ ADSTYLE_FILE="/Users/lw11996/.jenkins/adstyle_aos.properties"
 
 #Clean file
 echo "" > log_AOS_ManageJobSameListKey.txt
-
+name_of_report=`date +"%Y-%m-%d-%H:%M"`
 #Only applied for Adstyles that have same inventory key list.
 for style in $ADSTYLE_LIST;do
   echo "Trigger Ad style: $style for all keys" >> log_AOS_ManageJobSameListKey.txt
   echo "==== REPORT ===="
-  echo "TestPlanID: $PlanID_VALUE" >> dataReport.txt
-  echo "AD_STYLE: $style" >> dataReport.txt
+  echo "TestPlanID: $PlanID_VALUE" >> dataReport_$name_of_report.txt
+  echo "AD_STYLE: $style" >> dataReport_$name_of_report.txt
   for key in $InventoryKey_list;do
     echo "Trigger for key: $key" >> log_AOS_ManageJobSameListKey.txt
-    echo "InventoryKey: $key" >> dataReport.txt
+    echo "InventoryKey: $key" >> dataReport_$name_of_report.txt
 #    PlanID_VALUE=$1
 #    STYLE_VALUE=$2
 #    InventoryKey=$3
